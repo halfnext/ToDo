@@ -26,6 +26,11 @@ sap.ui.define([
             });
 
             MessageToast.show("Item Added to the List");
+        },
+
+        onIconPress : function (oEvent) {
+            oEvent.getSource().setIcon("sap-icon://accept")
+
         }
     });
 });
