@@ -1,6 +1,10 @@
 sap.ui.define([
-
-], function() {
+    "sap/ui/core/mvc/XMLView"
+], function(XMLView) {
     'use strict';
-    alert("UI5 Loaded");
+    XMLView.create({
+        viewName: "sap.ui.toDo.view.Main"
+    }).then(function (oView) {
+        oView.placeAt("container");
+    })
 });
