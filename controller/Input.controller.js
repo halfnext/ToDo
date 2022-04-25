@@ -2,7 +2,8 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageToast",
-], function(Controller, JSONModel, MessageToast) {
+    "sap/m/FeedListItemAction"
+], function(Controller, JSONModel, MessageToast, FeedListItemAction) {
     'use strict';
     return Controller.extend("sap.ui.toDo.controller.Input", {
         onInit : function () {
@@ -31,6 +32,17 @@ sap.ui.define([
         onIconPress : function (oEvent) {
             oEvent.getSource().setIcon("sap-icon://accept")
 
+        },
+
+        onItemPress : function () {
+            let oItemRem = FeedListItemAction.getSource().getData();
+            // let oItemRem = oEvent.getSource().getData(); 
+            let oModel = this.getView().getModel();
+            let aItems = oModel.getData().listItem;
+            aItems.push(oItemRem);
+            oModel.setData({
+                listItem: aItems
+            });
         }
     });
 });
