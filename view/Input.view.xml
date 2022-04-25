@@ -1,0 +1,9 @@
+<mvc:View controllerName="sap.ui.toDo.controller.Input" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+    <Panel headerText="Task Description">
+        <content>
+            <FeedInput placeholder="Post your task here" post=".post"></FeedInput>
+            <!-- <Input value="{/listItem/task}" valueLiveUpdate="true" width="80%" /> -->
+            <!-- <Button text="Add Item" press=".onAddItem" /> -->
+        </content>
+    </Panel>
+</mvc:View>
