@@ -36,14 +36,19 @@ sap.ui.define([
         },
 
         onIconPress : function (oEvent) {
-            oEvent.getSource().setIcon("sap-icon://accept")
+            let sIcon = oEvent.getSource().getIcon();
+            if (sIcon === "sap-icon://pending") {
+                oEvent.getSource().setIcon("sap-icon://accept")
+            } else {
+                oEvent.getSource().setIcon("sap-icon://pending")
+            }
 
 
         },
 
         onDelete : function (oEvent) {
             this.removeItem(oEvent.getParameter("item"));
-            MessageToast.show("Item deleted");
+            MessageToast.show("Activity deleted");
         },
 
         removeItem: function(oFeedListItem) {
