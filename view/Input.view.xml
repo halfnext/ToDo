@@ -3,7 +3,9 @@
         <content>
             <FeedInput placeholder="Post your task here" post=".onPost" icon="sap-icon://add"></FeedInput>
             <List showSeparators="Inner" items="{/listItem}">
-                <FeedListItem text="{task}" icon="sap-icon://pending" iconPress="onIconPress"/>
+                <FeedListItem text="{task}" icon="sap-icon://pending" iconPress="onIconPress" actions="{path: 'Actions', templateShareable: false}">
+                    <FeedListItemAction text="{Text}" icon="{Icon}" key="{Key}" press="onDelete" />
+                </FeedListItem>
             </List>
         </content>
     </Panel>

@@ -1,9 +1,8 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-    "sap/m/MessageToast",
-    "sap/m/FeedListItemAction"
-], function(Controller, JSONModel, MessageToast, FeedListItemAction) {
+    "sap/m/MessageToast"
+], function(Controller, JSONModel, MessageToast) {
     'use strict';
     return Controller.extend("sap.ui.toDo.controller.Input", {
         onInit : function () {
@@ -15,7 +14,14 @@ sap.ui.define([
         onPost : function (oEvent) {
             let sValue = oEvent.getParameter("value");
             let oItem = {
-                task: sValue
+                task: sValue,
+                Actions: [
+                    {
+                        "Text": "Delete",
+                        "Icon": "sap-icon://delete",
+                        "Key": "delete"
+                    }
+                ]
             };
 
             //send data to model
@@ -32,17 +38,21 @@ sap.ui.define([
         onIconPress : function (oEvent) {
             oEvent.getSource().setIcon("sap-icon://accept")
 
+
         },
 
-        onItemPress : function () {
-            let oItemRem = FeedListItemAction.getSource().getData();
-            // let oItemRem = oEvent.getSource().getData(); 
-            let oModel = this.getView().getModel();
-            let aItems = oModel.getData().listItem;
-            aItems.push(oItemRem);
-            oModel.setData({
-                listItem: aItems
-            });
-        }
+        onDelete : function (oEvent) {
+            this.removeItem(oEvent.getParameter("item"));
+            MessageToast.show("Item deleted");
+        },
+
+        removeItem: function(oFeedListItem) {
+			var sFeedListItemBindingPath = oFeedListItem.getBindingContext().getPath();
+			var sFeedListItemIndex = sFeedListItemBindingPath.split("/").pop();
+			var aFeedCollection = this.getView().getModel().getProperty("/listItem");
+
+			aFeedCollection.splice(sFeedListItemIndex, 1);
+			this.getView().getModel().setProperty("/listItem", aFeedCollection);
+		}
     });
 });

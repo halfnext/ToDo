@@ -1,10 +1,24 @@
 {
     "listItem": [
         {
-            "task": "First"
+            "task": "First",
+            "Actions": [
+                {
+                    "Text": "Delete",
+                    "Icon": "sap-icon://delete",
+                    "Key": "delete"
+                }
+            ]
         },
         {
-            "task": "Second"
+            "task": "Second",
+            "Actions": [
+                {
+                    "Text": "Delete",
+                    "Icon": "sap-icon://delete",
+                    "Key": "delete"
+                }
+            ]
         }
     ]
 }
