@@ -43,7 +43,6 @@ sap.ui.define([
                 oEvent.getSource().setIcon("sap-icon://pending")
             }
 
-
         },
 
         onDelete : function (oEvent) {
