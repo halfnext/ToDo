@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <title>UI5 ToDo List</title>
-    <script
-		id="sap-ui-bootstrap"
-        src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
-		data-sap-ui-theme="sap_belize"
-        data-sap-ui-libs="sap.m"
-		data-sap-ui-compatVersion="edge"
-		data-sap-ui-async="true"
-		data-sap-ui-onInit="module:sap/ui/toDo/index"
-		data-sap-ui-resourceroots='{
-			"sap.ui.toDo": "./"
-		}'>
-	</script>
-</head>
-<body class="sapUiBody" id="container">
-</body>
+	<head>
+    	<meta charset="utf-8">
+    	<title>UI5 ToDo List</title>
+    	<script
+			id="sap-ui-bootstrap"
+       	 	src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_belize"
+        	data-sap-ui-libs="sap.m"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-async="true"
+			data-sap-ui-onInit="module:sap/ui/core/ComponentSupport"
+			data-sap-ui-resourceroots='{
+				"sap.ui.toDo": "./"
+			}'>
+		</script>
+	</head>
+	<body class="sapUiBody sapUiSizeCompact">
+		<div 
+			data-sap-ui-component 
+			data-name="sap.ui.toDo" 
+			data-id="container">
+		</div>
+	</body>
 </html>
